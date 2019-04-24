@@ -1,0 +1,56 @@
+body {
+    background-image: url("../images/alice-queen.jpg");
+    background-size: cover;
+}
+
+h1 {
+    font-family: 'Alice', serif;
+    text-align: center;
+    font-size: 70px;
+    font-weight: bold;
+    padding-top: 10pt;
+}
+
+.container {
+    text-align: center;
+    margin-top: 0px;
+}
+
+.jumbotron {
+    background: none;
+    margin-top: 10px;
+}
+
+.btn {
+    background-color: rgb(145, 93, 59);
+    width: 700px;
+    height: 100px;
+    margin:0px auto;
+    font-family: 'Alice', serif;
+    font-size: 40px;
+    animation: ease-in-out;
+}
+
+
+#page-container {
+    position: relative;
+    min-height: 100vh;
+  }
+  #content-wrap {
+    padding-bottom: 2.5rem;    
+  }
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem; 
+    color: rgb(134, 35, 35);
+    font-family: 'Alice', serif;
+    text-align: center;           
+  }
+
+#image-holder {
+    margin: auto;
+    width: 480px;
+    text-align: center;
+}
