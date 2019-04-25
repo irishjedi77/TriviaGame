@@ -1,45 +1,135 @@
-$(document).ready(function() {
+$(document).ready(function () {
+    //Trivia variables
 
-//Trivia variables
+    //Checks the responses and tallies correct and incorrect answers.
+    var correct = 0;
+    var incorrect = 0;
+    var unanswered = 0;
+    var timer;
+    var clock;
 
-var correct
-var incorrect
-var unanswered
-var timer
+    function check() {
+        var question1 = $(".question1").find("input:checked").val();
+        var question2 = $(".question2").find("input:checked").val();
+        var question3 = $(".question3").find("input:checked").val();
+        var question4 = $(".question4").find("input:checked").val();
+        var question5 = $(".question5").find("input:checked").val();
 
-//Trivia questions
+        if (question1 == "c") {
+            correct++;
+        } else if (!question1) {
+            unanswered++;
+        } else if (question1 !== "c") {
+            incorrect++;
+        }
 
-//q1: Which character in Alice's Adventures in Wonderland was based on the author, Lewis Carroll, himself?
-//q2: Lewis Carroll is a "pen-name." What is the author's real name?
-//q3: Alice's Adventures in Wonderland and Through the Looking Glass were both banned in China. Why?
-//q4: What sea creatures did the Walrus and the Carpenter eat?
-//q5: Which character said "We're all mad here. I'm mad. You're mad.”?
 
-//Trivia options
+        if (question2 == "c") {
+            correct++;
+        }
+        else if (!question2) {
+            unanswered++;
+        }
+        else if (question2 !== "c") {
+            incorrect++;
+        }
 
-//o1: ["the Walrus", "the White Rabbit", "the Dodo", "Bill the Lizard"];
-//o2: ["Louis Carroll", "Edgar Cuthwellis", "Charles Lutwidge Dodgson", "Edgar U. C. Westhill"];
-//o3: ["Animals should not use human language", "political bias", "drug references", "inappropriate imagery"];
-//o4: ["clams", "oysters", "prawns", "octopus"];
-//o5: ["the Mad Hatter", "the March Hare", "the Queen of Hearts", "the Cheshire cat"]
 
-//Trivia answers
+        if (question3 == "a") {
+            correct++;
+        }
+        else if (!question3) {
+            unanswered++;
+        }
+        else if (question3 !== "a") {
+            incorrect++;
+        }
 
-//a1:"the Dodo"
-//a2:"Charles Lutwidge Dodgson"
-//a3:"Animals should not use human language"
-//a4:"oysters"
-//a5:"the Cheshire cat"
 
-//shows the loading gif when start button is clicked.
+        if (question4 == "b") {
+            correct++;
+        }
+        else if (!question4) {
+            unanaswered++;
+        }
+        else if (question4 !== "b") {
+            incorrect++;
+        }
 
-    $("#start-button").click(function (){
-        $("#image-holder").show("<img src=https://gph.to/2VkAp9B>");
-        
+
+        if (question5 == "d") {
+            correct++;
+        }
+        else if (!question5) {
+            incorrect++;
+        }
+        else if (question5 !== "d") {
+            incorrect++;
+        }
+        //document.getElementById("#after-submit").style.visibility = "visible";
+        //$("#number-correct").innerHTML = "You got " + correct + "correct," + incorrect + "incorrect, and" + unanswered + "unanswered."
+
+    };
+
+
+    //shows the loading gif when start button is clicked and hides the questions and timer for 3 seconds
+
+    $("#start-button").click(function () {
+        $("#allQuestions").hide();
+        $("#image-holder").show();
+        $("#after-submit").hide();
+        $(this).hide();
+        setTimeout(function () {
+            $("#image-holder").hide();
+            $("#allQuestions").hide();
+            $("#allQuestions").show();
+            $("#timer").show();
+            startTimer(80);
+        }, 1000);
+
     });
 
-    
+
+    $("#finished").click(function (e) {
+        e.preventDefault();
+        clearInterval(clock);
+        $("#allQuestions").hide();
+        $("#start-button").hide();
+        check();
+        $("#timer").hide();
+        alert("You got " + correct + " " + "correct, " + incorrect + " " + "incorrect, and " + unanswered + " " + "unanswered.")
+        if (correct == 5) {
+            alert("Perfect score! You are stark raving mad!");
+        }
+        if (correct !== 5) {
+            alert("Off with your head!");
+        }
+
+    });
+
+    function startTimer(duration) {
+        var minutes, seconds;
+        timer = duration
+        clock = setInterval(function () {
+            minutes = parseInt(timer / 60, 10);
+            seconds = parseInt(timer % 60, 10);
+
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            $("#timer").text(minutes + ":" + seconds);
+
+            if (--timer < 0) {
+                clearTimeout(clock);
+            }
+
+        }, 1000);
+    }
+
 });
+
+
+
 
 
 

@@ -8,7 +8,7 @@ h1 {
     text-align: center;
     font-size: 70px;
     font-weight: bold;
-    padding-top: 10pt;
+    padding-top: 0pt;
 }
 
 .container {
@@ -18,7 +18,7 @@ h1 {
 
 .jumbotron {
     background: none;
-    margin-top: 10px;
+    margin-top: 0px;
 }
 
 .btn {
@@ -53,4 +53,26 @@ h1 {
     margin: auto;
     width: 480px;
     text-align: center;
+}
+
+#allQuestions {
+    font-family: 'Alice', serif;
+    font-size: 15pt;
+}
+
+#timer {
+    font-family: 'Alice', serif;
+    font-size: 25pt;
+    margin-bottom: 15pt;
+    margin-top: 0pt;
+    text-align: center;
+}
+
+#after-submit {
+    visibility: hidden;
+    
+}
+
+#finished {
+    margin-top: 20px;
 }
